@@ -1,5 +1,6 @@
 package com.example.android
 
+import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
 import java.io.Serializable
 
@@ -36,5 +37,8 @@ class Person : Serializable {
     }
     fun getFullName(): String {
         return this.surname+" "+this.name
+    }
+    fun setPhoto() {
+
     }
 }

@@ -12,3 +12,5 @@
 /captures
 .externalNativeBuild
 .cxx
+/Android/app/src/main/res/layout/activity_register.xml
+/Android/app/src/main/java/com/example/android/RegistrActivity.kt

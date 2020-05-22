@@ -20,12 +20,13 @@ class MainActivity : AppCompatActivity() {
     lateinit var passwordInput: EditText
     lateinit var emailInput: EditText
     lateinit var sendForm: Button
+    lateinit var registr: Button
     var users = mutableSetOf<Person>()
 
     var albert = Person("Albert","Khannanov","xannanov.albert@mail.ru",
-        "roooot",R.drawable.alba)
+        "Rooo0t",R.drawable.alba)
     var yasmina = Person("Yasmina","Khannanova","yas@yandex.com",
-        "yaaaas",R.drawable.yas)
+        "Yaaa7s",R.drawable.yas)
     // было бы побольше времени, то всё это сделал через базы данных
     // и сделал бы ещё категории пользователей(Админ, юзер и тд)
 
@@ -41,6 +42,7 @@ class MainActivity : AppCompatActivity() {
         passwordInput = findViewById(R.id.passwordInput)
         emailInput = findViewById(R.id.emailInput)
         sendForm = findViewById(R.id.sendForm)
+        registr = findViewById(R.id.registr)
 
         emailInput.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable) {
@@ -58,7 +60,7 @@ class MainActivity : AppCompatActivity() {
         })
         passwordInput.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable) {
-                if(passwordInput.length() < 6) {
+                if(!validatorPassword(passwordInput.text.toString())) {
                     passwordInput.setTextColor(getResources().getColor(R.color.red))
                 }
                 else {
@@ -71,7 +73,8 @@ class MainActivity : AppCompatActivity() {
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {}
         })
         sendForm.setOnClickListener {
-            if(validatorEmail(emailInput.text.toString()) && passwordInput.length() >= 6) {
+            if(validatorEmail(emailInput.text.toString()) &&
+                validatorPassword(passwordInput.text.toString())) {
                 var user = hasUser(emailInput.text.toString(), passwordInput.text.toString())
                 if(user != null) {
                     isLogged = true
@@ -89,6 +92,12 @@ class MainActivity : AppCompatActivity() {
                 toast.show()
             }
         }
+        registr.setOnClickListener {
+            val intent = Intent(this, RegistrActivity::class.java)
+            startActivity(intent)
+        }
+
+
 
     }
 
@@ -104,8 +113,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun validatorEmail(str: String): Boolean {
-        val reg = Regex("""^.+@.+\..+$""")
-        return str.matches(reg)
+        return str.matches(Regex("""^.+@.+\..+$"""))
+    }
+    fun validatorPassword(str: String): Boolean {
+        return Regex("[A-Z]").containsMatchIn(str) &&
+                Regex("[a-z]").containsMatchIn(str) &&
+                Regex("[0-9]").containsMatchIn(str) &&
+                str.length >= 6
     }
     fun hasUser(email: String, password: String): Person? {
         for(user in users) {
