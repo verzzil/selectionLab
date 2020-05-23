@@ -20,7 +20,6 @@ class MainActivity : AppCompatActivity() {
     lateinit var passwordInput: EditText
     lateinit var emailInput: EditText
     lateinit var sendForm: Button
-    lateinit var registr: Button
     var users = mutableSetOf<Person>()
 
     var albert = Person("Albert","Khannanov","xannanov.albert@mail.ru",
@@ -42,7 +41,6 @@ class MainActivity : AppCompatActivity() {
         passwordInput = findViewById(R.id.passwordInput)
         emailInput = findViewById(R.id.emailInput)
         sendForm = findViewById(R.id.sendForm)
-        registr = findViewById(R.id.registr)
 
         emailInput.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable) {
@@ -91,10 +89,6 @@ class MainActivity : AppCompatActivity() {
                                             Toast.LENGTH_SHORT)
                 toast.show()
             }
-        }
-        registr.setOnClickListener {
-            val intent = Intent(this, RegistrActivity::class.java)
-            startActivity(intent)
         }
 
 
