@@ -35,14 +35,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        users.addAll(listOf(albert,yasmina))
+        users.addAll(listOf(albert, yasmina))
 
         pref = getSharedPreferences(APP_PREFERENCES, MODE_PRIVATE)
 
         passwordInput = findViewById(R.id.passwordInput)
         emailInput = findViewById(R.id.emailInput)
         sendForm = findViewById(R.id.sendForm)
-        registr = findViewById(R.id.registr)
+//        registr = findViewById(R.id.registr)
 
         emailInput.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable) {
@@ -92,10 +92,10 @@ class MainActivity : AppCompatActivity() {
                 toast.show()
             }
         }
-        registr.setOnClickListener {
-            val intent = Intent(this, RegistrActivity::class.java)
-            startActivity(intent)
-        }
+//        registr.setOnClickListener {
+//            val intent = Intent(this, RegistrActivity::class.java)
+//            startActivity(intent)
+//        }
 
 
 

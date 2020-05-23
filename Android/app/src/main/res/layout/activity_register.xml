@@ -18,27 +18,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Your name"
+        android:id="@+id/rname"
         />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Your surname"
+        android:id="@+id/rsurname"
         />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Your email"
+        android:id="@+id/remail"
         />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Your password"
-        />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Your name"
+        android:id="@+id/rpassword"
         />
 
     <Button
@@ -48,10 +46,12 @@
         android:id="@+id/loadImage"
         />
 
-    <ImageView
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:id="@+id/ava"
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/register"
         />
 
 </LinearLayout>

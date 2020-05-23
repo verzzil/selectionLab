@@ -1,7 +1,5 @@
 package com.example.android
 
-import android.graphics.Bitmap
-import android.graphics.drawable.Drawable
 import java.io.Serializable
 
 class Person : Serializable {
