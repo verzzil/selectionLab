@@ -20,7 +20,6 @@ class MainActivity : AppCompatActivity() {
     lateinit var passwordInput: EditText
     lateinit var emailInput: EditText
     lateinit var sendForm: Button
-    lateinit var registr: Button
     var users = mutableSetOf<Person>()
 
     var albert = Person("Albert","Khannanov","xannanov.albert@mail.ru",
